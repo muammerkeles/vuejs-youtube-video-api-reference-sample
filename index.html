@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <style>
+        .app1 {
+            margin: 25px auto;
+        }
+
+        .yv-wrapper {
+            border: solid 1px white;
+            margin-bottom: 10px;
+            overflow: hidden;
+            border-radius: 7px;
+            box-shadow: 0px 0px 5px #9c9c9c;
+        }
+
+        .yv-inner .custom-select {
+            width: auto;
+            line-height: 1;
+            height: calc(2rem);
+        }
+
+        .yv-inner .embed-responsive:after {
+            content: '';
+            background-repeat: repeat;
+            right: 0;
+            bottom: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 3;
+            background: url(//laautoshow.com/wp-content/plugins/revslider/public/assets/css/../assets/gridtile.png);
+        }
+
+        .controls {
+            position: relative;
+            z-index: 9;
+            background: #fff;
+            margin-top: 2px;
+        }
+
+        .form-range {
+            position: relative
+        }
+
+            .form-range output {
+                display: none
+            }
+
+        .controls:hover .form-range output {
+            display: inline-block !Important;
+            position: absolute;
+            background-image: linear-gradient(#0dd002, #10f903);
+            text-align: center;
+            color: white;
+            text-shadow: 1px 1px 1px #045000;
+            display: inline-block;
+            bottom: 130%;
+            left: 50%;
+            margin-left: -22.5px;
+            padding: 5px;
+            font-size: 1.2em;
+        }
+
+        .form-range output:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 10px solid #0ff602;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            top: 100%;
+            left: 50%;
+            margin-left: -10px;
+            margin-top: -1px;
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+    <div id="app1" class="app1">
+        <h3 id="board" class="text-center" v-if="!inited">loading..</h3>
+        <div class="container" v-if="inited">
+            <div class="row">
+                <youtube-videos v-for="(item,index) in myvideos"
+                                :playerid="'player_'+index"
+                                :videoid="item.videoid"
+                                :autoplay="item.autoplay"
+                                :quality="item.quality"
+                                :mute="item.mute"
+                                :duration="0"></youtube-videos>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+    <script src="assets/vue-youtube-api-component.js"></script>
+</body>
+</html>
