@@ -20,7 +20,7 @@ tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName("script")[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 function onYouTubeIframeAPIReady() {
-    setTimeout(function () {
+    //setTimeout(function () {
         Vue.component("youtube-videos", {
             props: ["playerid", "videoid", "autoplay", "mute", "quality", "duration"],
             data: function () {
@@ -194,7 +194,7 @@ function onYouTubeIframeAPIReady() {
                 this.inited = !0;
             }
         });
-    }, 1500);
+    //}, 1500);
 }
 function onPlayerStateChange(event) {
     //info.html("status is " + event.data);
